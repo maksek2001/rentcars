@@ -1,0 +1,37 @@
+.info {
+    margin: 1rem 0;
+}
+
+.help-info {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgb(48 50 51 / 10%);
+    color: #454545;
+    text-align: justify;
+    line-height: 1.75;
+}
+
+.help-info ul {
+    padding-left: 1rem;
+    font-size: 1.125rem;
+}
+
+.help-info ul>ul {
+    padding-left: 1em;
+}
+
+.help-info summary {
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding-top: 5px;
+}
+
+.help-info ul>li {
+    font-size: 0.95em;
+}
+
+.help-info details {
+    margin-bottom: 10px;
+}

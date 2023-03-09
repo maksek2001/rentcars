@@ -1,0 +1,268 @@
+.main-container {
+    display: flex;
+}
+
+.catalog-container {
+    width: calc(100% - 250px);
+    margin: 20px auto;
+}
+
+.car {
+    padding-bottom: 20px;
+    border-radius: 0.375rem;
+    width: 100%;
+    height: fit-content;
+    display: inline-flex;
+    text-align: center;
+    margin: 0 auto 10px;
+}
+
+.car>a {
+    width: 50%;
+}
+
+.car-image {
+    width: 100%;
+    height: 305px;
+    border-radius: 0.375rem;
+    object-fit: cover;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 12px 0 rgb(48 50 51 / 10%);
+}
+
+.car-image:hover {
+    border: 1px solid #e8e8e8;
+}
+
+.car-name {
+    margin-top: 0.375rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: center;
+    color: #0d0236bf;
+}
+
+.popular-block {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popular {
+    position: absolute;
+    border-radius: 0.375rem;
+    background-color: #398400a1;
+    padding: 0.375rem 1rem;
+    margin-left: 1px;
+    margin-top: 0.5px;
+    color: #ffffff;
+}
+
+.car-id {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.car-info-container {
+    margin-left: 1rem;
+    width: 50%;
+    min-width: 460px;
+    height: 305px;
+    text-align: justify;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px 0 rgb(48 50 51 / 10%);
+    border-radius: 0.375rem;
+    padding: 1rem 1rem 0;
+}
+
+.price {
+    text-align: center;
+    font-weight: bold;
+    color: #393131;
+    width: 55%;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.car-control {
+    width: 100%;
+    margin: 0.875rem 0 0.25rem;
+    display: inline-flex;
+}
+
+.rent-button {
+    width: calc(45% - 10px);
+    margin-left: 10px;
+}
+
+.car-info {
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 0.375rem;
+    padding: 0.725rem;
+    display: inline-flex;
+}
+
+.car-info svg {
+    color: #0c57c6;
+}
+
+.car-info .left-info {
+    width: 55%;
+}
+
+.car-info .right-info {
+    width: calc(45% - 10px);
+    margin-left: 10px;
+}
+
+.block-info {
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+.catalog-container .btn {
+    margin-left: -2px;
+    width: 100%;
+}
+
+.car-info svg.transmission-icon,
+.car-info svg.engine-icon {
+    margin-left: -5px;
+    margin-right: 1px;
+}
+
+.car-info .icon.bi-calendar-check,
+.car-info .icon.bi-people-fill {
+    margin-right: 5px;
+}
+
+.cars-count {
+    font-size: 1.175rem;
+    text-align: center;
+    color: #0c57c6;
+    padding: 0.325rem;
+    font-weight: 600;
+    background-color: #ffffff;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 12px 0 rgba(48, 50, 51, 0.285);
+}
+
+@media only screen and (max-width: 1190px) {
+    .car {
+        display: block;
+    }
+
+    .catalog-container {
+        margin: 20px auto;
+    }
+
+    .car-name {
+        margin-top: 0.85rem;
+    }
+
+    .title-panel {
+        width: 90%;
+    }
+
+    .car-info-container {
+        height: fit-content;
+        margin: -1px auto;
+        width: 90%;
+        border-radius: 0 0 0.375rem 0.375rem;
+    }
+
+    .car-info {
+        padding: 1.25rem;
+    }
+
+    .car-image {
+        height: auto;
+        min-width: 460px;
+        margin: 0;
+        border-radius: 0.375rem 0.375rem 0 0;
+        width: calc(90% + 3px);
+        object-fit: contain;
+        box-shadow: 0 -1px 6px rgb(98 98 98 / 26%);
+    }
+
+    .popular {
+        margin-top: 1px;
+    }
+}
+
+@media only screen and (max-width: 1190px) and (min-width: 1000px) {
+    .car-info .left-info {
+        padding-left: 12.5%;
+    }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 875px) {
+    .car-info .left-info {
+        padding-left: 7.5%;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .catalog-container {
+        width: 100%;
+        position: relative;
+        left: 0;
+        margin: 25px auto;
+    }
+
+    .car-image,
+    .car-info-container {
+        min-width: initial;
+        width: 100%;
+    }
+
+    .car-info .icon.bi-calendar-check,
+    .car-info .icon.bi-people-fill {
+        margin-right: 8px;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 600px) {
+    .car-info .left-info {
+        padding-left: 7.5%;
+    }
+}
+
+@media only screen and (max-width:510px) {
+    .car-info {
+        display: block;
+    }
+
+    .car-info .left-info,
+    .car-info .right-info {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .car-control {
+        display: block;
+    }
+
+    .price {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .rent-button {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .car-info svg {
+        margin-right: 10px;
+    }
+
+    .car-info svg.transmission-icon,
+    .car-info svg.engine-icon {
+        margin-right: 3px;
+    }
+}
