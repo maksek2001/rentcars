@@ -70,32 +70,34 @@ $this->title = Yii::$app->name;
             <h4 class="custom-h">
                 <strong>Наши автомобили</strong>
             </h4>
-            <div class="slider">
-                <div class="slider-win">
-                    <div class="slider-container">
-                        <?php foreach ($categories as $category) : ?>
-                            <div class="slider-item">
-                                <a href="<?= Url::toRoute(['catalog/category', 'id' => $category->id]) ?>" class="item-info">
-                                    <div class="item-left">
-                                        <?php if ($category->image) : ?>
-                                            <img class="item-img" src="/images/categories/<?= Html::encode($category->image) ?>" width="100%" height="100%" />
-                                        <?php else : ?>
-                                            <img class="item-img" src="/images/categories/default.jfif" width="100%" height="100%" />
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="item-right">
-                                        <p class="item-name"> <?= Html::encode($category->name) ?></p>
-                                        <strong class="item-price">
-                                            <?php if (isset($categoryPrices[$category->id])) : ?>
-                                                от <?= Html::encode($categoryPrices[$category->id]) ?> ₽/час
+            <div class="slider" id="slider-1">
+                <div class="outer-slider-block">
+                    <div class="slider-block">
+                        <div class="slider-container">
+                            <?php foreach ($categories as $category) : ?>
+                                <div class="slider-item">
+                                    <a href="<?= Url::toRoute(['catalog/category', 'id' => $category->id]) ?>" class="item-info">
+                                        <div class="item-left">
+                                            <?php if ($category->image) : ?>
+                                                <img class="item-img" src="/images/categories/<?= Html::encode($category->image) ?>" width="100%" height="100%" />
                                             <?php else : ?>
-                                                цены не указаны
+                                                <img class="item-img" src="/images/categories/default.jfif" width="100%" height="100%" />
                                             <?php endif; ?>
-                                        </strong>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endforeach; ?>
+                                        </div>
+                                        <div class="item-right">
+                                            <p class="item-name"> <?= Html::encode($category->name) ?></p>
+                                            <strong class="item-price">
+                                                <?php if (isset($categoryPrices[$category->id])) : ?>
+                                                    от <?= Html::encode($categoryPrices[$category->id]) ?> ₽/час
+                                                <?php else : ?>
+                                                    цены не указаны
+                                                <?php endif; ?>
+                                            </strong>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
                 <div class="slider-control">

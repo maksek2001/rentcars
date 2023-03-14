@@ -48,16 +48,6 @@ select:disabled {
     cursor: default;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0;
-    font-family: var(--font-family);
-}
-
 html {
     font-family: var(--font-family);
     font-size: var(--pc-font-size);
@@ -173,6 +163,10 @@ main>.container-fluid {
 
 .logout:focus {
     box-shadow: none;
+}
+
+.navbar-toggler {
+    border: 0;
 }
 
 .navbar-toggler:focus {
@@ -550,7 +544,7 @@ svg {
         display: flex;
     }
 
-    .desktop-text {
+    .pc-display {
         display: none;
     }
 

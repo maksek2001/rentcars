@@ -11,7 +11,7 @@ use common\models\shop\Rent;
         <div class="panel-info rent-block">
             <div class="info-control rent-header">
                 <strong class="rent-number"> АРЕНДА <?= Html::encode($rent->id) ?> </strong>
-                <p class="rent-period info-text desktop-text">
+                <p class="rent-period info-text pc-display">
                     <?= Html::encode($rent->startDatetime) . " - " . Html::encode($rent->endDatetime) ?>
                 </p>
                 <p data-text="<?= Rent::STATUSES_MESSAGES[$rent->status] ? Rent::STATUSES_MESSAGES[$rent->status]['admin_message'] : 'Такой статус изначально не был предусмотрен' ?>" class="rent-status rent-<?= Html::encode($rent->status) ?>">

@@ -22,7 +22,7 @@ $this->title = 'Авторизация';
         'method' => 'post'
     ]); ?>
 
-    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+    <?= $form->field($model, 'username')->textInput() ?>
 
     <?= $form->field($model, 'password')->passwordInput() ?>
 

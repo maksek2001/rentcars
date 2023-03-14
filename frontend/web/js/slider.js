@@ -1,51 +1,88 @@
-function calculateWidth() {
-    let totalWidth = 0;
-    $('.slider-item').each(function () {
-        totalWidth += parseInt($(this).outerWidth(true), 10);
+function calculateSliderWidth($slider) {
+    let sliderWidth = 0;
+
+    $slider.find('.slider-item').each(function () {
+        sliderWidth += $(this).outerWidth(true);
     });
-    return totalWidth;
+
+    return sliderWidth;
 }
 
-let totalWidth = calculateWidth();
-let totalOffset = 0;
+$(document).ready(function () {
+    let totalOffsets = new Map();
+    let slidersWidth = new Map();
 
-$(window).resize(function () {
-    totalWidth = calculateWidth();
-});
+    $('.slider').each(function () {
+        let $slider = $(this);
 
-$('#slider-next').on('click', function () {
-    let $slider = $(this).closest('.slider');
-    let $sliderWin = $slider.find('.slider-win');
-    let $item = $sliderWin.find('.slider-item');
-    let move = $item.outerWidth(true);
+        totalOffsets.set($slider.attr('id'), 0);
+        slidersWidth.set($slider.attr('id'), calculateSliderWidth($slider));
 
-    if (totalOffset > -totalWidth + $slider.width()) {
-        totalOffset -= move;
-        $sliderWin.animate(
-            { 'margin-left': '-=' + move },
-            1000
-        );
-    }
-});
+        let $sliderControl = $slider.find('.slider-control');
+        let $sliderButtons = $sliderControl.find('.slider-btn');
+        let sliderHeight = $slider.find('.slider-block').outerHeight(true);
+        let btnHeight = $sliderButtons.outerHeight(true);
 
-$('#slider-prev').on('click', function () {
-    let $slider = $(this).closest('.slider');
-    let $sliderWin = $slider.find('.slider-win');
-    let $item = $sliderWin.find('.slider-item');
-    let move = $item.outerWidth(true);
-    let posX = $sliderWin.offset().left;
+        $slider.css({ 'height': sliderHeight });
+        $sliderControl.css({ 'top': -(sliderHeight / 2 + btnHeight / 2) });
+        $sliderButtons.fadeIn(500);
+    });
 
-    if (posX <= 0) {
-        totalOffset += move;
-        $sliderWin.animate(
-            { 'margin-left': '+=' + move },
-            1000
-        );
-    } else {
-        totalOffset = 0;
-        $sliderWin.animate(
-            { 'margin-left': '0px' },
-            1000
-        );
-    }
+    $('#slider-next').on('click', function () {
+        let $slider = $(this).closest('.slider');
+        let totalOffset = totalOffsets.get($slider.attr('id'));
+
+        let $sliderBlock = $slider.find('.slider-block');
+
+        let move = $sliderBlock.find('.slider-item').outerWidth(true);
+        let sliderWidth = slidersWidth.get($slider.attr('id')) - $sliderBlock.outerWidth(true);
+
+        if ((totalOffset - move) >= -sliderWidth) {
+            totalOffset -= move;
+            totalOffsets.set($slider.attr('id'), totalOffset);
+
+            $sliderBlock.animate(
+                { 'margin-left': '-=' + move },
+                600
+            );
+        } else {
+            let remainder = Math.abs(totalOffset + sliderWidth);
+            if (remainder > 0 && remainder < move) {
+                totalOffset -= remainder;
+                totalOffsets.set($slider.attr('id'), totalOffset);
+
+                $sliderBlock.animate(
+                    { 'margin-left': '-=' + remainder },
+                    600
+                );
+            }
+        }
+    });
+
+    $('#slider-prev').on('click', function () {
+        let $slider = $(this).closest('.slider');
+        let totalOffset = totalOffsets.get($slider.attr('id'));
+
+        let $sliderBlock = $slider.find('.slider-block');
+        let $item = $sliderBlock.find('.slider-item');
+        let move = $item.outerWidth(true);
+        let positionX = $sliderBlock.offset().left;
+
+        if (positionX <= 0) {
+            totalOffset += move;
+            totalOffsets.set($slider.attr('id'), totalOffset);
+
+            $sliderBlock.animate(
+                { 'margin-left': '+=' + move },
+                600
+            );
+        } else {
+            totalOffsets.set($slider.attr('id'), 0);
+
+            $sliderBlock.animate(
+                { 'margin-left': '0px' },
+                600
+            );
+        }
+    });
 });

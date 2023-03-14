@@ -1,7 +1,6 @@
 .slider {
     width: 100%;
-    height: 100%;
-    padding: 0.75rem 0;
+    margin: 0.75rem auto;
     overflow: hidden;
     overflow-x: hidden;
     scroll-snap-type: mandatory;
@@ -10,9 +9,14 @@
     white-space: nowrap;
 }
 
-.slider-win {
-    height: 100%;
-    padding: 0 40px;
+.outer-slider-block {
+    width: 85%;
+    margin: 0 auto;
+    height: fit-content;
+}
+
+.slider-block {
+    height: fit-content;
     display: flex;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -26,12 +30,9 @@
 .slider-item {
     display: inline-block;
     vertical-align: top;
-    width: 270px;
-    padding: 10px 0;
     white-space: nowrap;
     flex-grow: 0;
     flex-shrink: 0;
-    margin: 1rem auto 0 1.75rem;
 }
 
 .slider-control {
@@ -40,86 +41,9 @@
     width: 95%;
     display: flex;
     justify-content: space-between;
-    top: -89px;
 }
 
 .slider-btn {
-    display: inline-block;
-    font-size: 45px;
-    color: #90969c;
-    width: 1rem;
-    font-weight: bold;
-    height: 1rem;
-    border-radius: 50px;
+    display: none;
     cursor: pointer;
-}
-
-.slider-btn:hover,
-.slider-btn:focus,
-.slider-btn:active {
-    color: #0c67ec;
-}
-
-.item-info {
-    display: inline-flex;
-    align-items: flex-start;
-}
-
-.item-left {
-    width: 125px;
-    height: 90px;
-}
-
-.item-name {
-    font-weight: 600;
-    color: rgb(29, 29, 29);
-    font-size: 1rem;
-}
-
-.item-right {
-    text-align: left;
-    padding: 0.75rem 0.5rem;
-    font-size: 0.85rem;
-    color: #0c67ec;
-    white-space: initial;
-}
-
-.item-img {
-    border-radius: 0.375rem;
-    object-fit: cover;
-}
-
-@media only screen and (max-width: 767px) {
-    .slider-item {
-        margin: 1rem 0 0 1.25rem;
-    }
-
-    .item-info {
-        display: block;
-    }
-
-    .item-left {
-        width: 200px;
-        height: 130px;
-    }
-
-    .item-right {
-        text-align: center;
-        font-size: 1rem;
-        width: 200px;
-    }
-
-    .slider-btn {
-        display: inline-block;
-        font-size: 37px;
-    }
-
-    .slider-control {
-        width: 93%;
-        top: -137px;
-    }
-
-    .slider {
-        padding: 0;
-    }
 }
